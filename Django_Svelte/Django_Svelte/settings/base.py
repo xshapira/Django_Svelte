@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from django.utils.translation import gettext_lazy as _
@@ -95,10 +96,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'APP_DIRS': True,
-        'DIRS': [
-            BASE_DIR + '/Svelte/dist',
-            BASE_DIR + '/templates',
-        ],
+        'DIRS': [f'{BASE_DIR}/Svelte/dist', f'{BASE_DIR}/templates'],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -108,8 +106,9 @@ TEMPLATES = [
                 'wagtail.contrib.settings.context_processors.settings',
             ],
         },
-    },
+    }
 ]
+
 
 WSGI_APPLICATION = 'Django_Svelte.wsgi.application'
 
@@ -170,9 +169,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-STATICFILES_DIRS = [
-    BASE_DIR + '/Svelte/dist',
-]
+STATICFILES_DIRS = [f'{BASE_DIR}/Svelte/dist']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
